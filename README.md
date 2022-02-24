@@ -9,14 +9,14 @@ QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 **Li, Wenyi**: 
 
-**Wang, Yu Nicole **:
+**Wang, Yu Nicole**:
 
 ## Project Topic: 
 
-## Introduction:
+### Introduction:
 
-## Data:
+### Data:
 
-## Project Description? 
+### Final Project:
 
 ## Useful Link:
