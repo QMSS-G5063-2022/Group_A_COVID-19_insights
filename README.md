@@ -2,7 +2,7 @@
 QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 
-## Group members: Shauna Han, Toby Law, Wenyi Li, Nicole Yu Wang
+## Group members: Shauna Han, Toby Law, Wenyi Li, Yu Wang
 
 **Han, Shauna**: (insert email)
 
@@ -10,7 +10,7 @@ QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 **Li, Wenyi**: 
 
-**Wang, Yu Nicole**:
+**Wang, Yu**:
 
 ## Project Topic: 
 
