@@ -12,11 +12,7 @@ QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 **Wang, Yu**: yw3760@columbia.edu
 
+
 ## Project Topic: Effects of COVID-19 on the working population in the U.S.
 
-
-### Introduction:
-
-### Data: to be added..
-
-## Useful Link:
+[Project Proposal](./Project_Proposal_Group_A.pdf)
