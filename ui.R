@@ -25,6 +25,7 @@ ui <- fluidPage(
         hr(), 
         br(),
         
+        h3("Weekly Wage Percentage Change by Industries"),
         p("Weekly wages are one of the most important indicators that can reflect 
         the state of the labor market. We aim to visualize the effect of the 
         COVID-19 on weekly wage by different industries, within the time range 
@@ -47,7 +48,8 @@ ui <- fluidPage(
         first quarter of 2021, all the industries had sharp rises and sharp 
         declines, respectively; some industries hit the lowest record of wage 
         percentage change at the first quarter of 2021."),
-             
+        
+        h3("Change in Weekly Working Hours by Industries"),     
         p("Working hours are another important indicator of the labor market. 
         We aim to visualize how weekly working hours in different industries 
         were affected by the COVID-19.  This data was collected from the U.S. 
