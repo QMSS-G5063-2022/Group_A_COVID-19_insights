@@ -2,7 +2,7 @@
 QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 
-## Group members: Shauna Han, Toby Law, Wenyi Li, Yu Wang
+## Group members: 
 
 **Han, Shauna**: shh2145@columbia.edu
 
