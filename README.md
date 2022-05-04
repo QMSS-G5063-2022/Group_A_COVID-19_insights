@@ -25,9 +25,11 @@ unemployment rate, differences in daily movement patterns of the population, and
 changes in wage and working hours in different industries. The data we collected 
 are from the U.S. Bureau of Labor Statistics, Meta's Data for Good, and Twitter. 
 
-[US Bureau of Labour Statistics](https://www.bls.gov/data/)
-[Twitter developer API](https://developer.twitter.com/en/products/twitter-api)
-[Data For Good at Meta](https://dataforgood.facebook.com/dfg/covid-19)
+[US Bureau of Labour Statistics](https://www.bls.gov/data/)  
+
+[Twitter developer API](https://developer.twitter.com/en/products/twitter-api)  
+
+[Data For Good at Meta](https://dataforgood.facebook.com/dfg/covid-19)  
 
 
 ## Group members: 
