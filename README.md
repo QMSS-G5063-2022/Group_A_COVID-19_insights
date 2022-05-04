@@ -17,4 +17,4 @@ QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 
 [Project Proposal](./Project_Proposal_Group_A.pdf)
 <br /> 
-[Process Book](./Group A_Process Book.pdf)
+[Process Book](./GroupA_ProcessBook.pdf)
