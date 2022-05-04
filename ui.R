@@ -1,6 +1,8 @@
 library(markdown)
 library(shiny)
 
+source('data_preprocessing.R')
+
 ui <- fluidPage(
   
   titlePanel(h2(strong("The effects of COVID-19 on the US working population"))),

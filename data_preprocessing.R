@@ -197,9 +197,9 @@ county_shp <- readOGR("movement_range_maps/cb_2021_us_county_500k/cb_2021_us_cou
 state_shp <- readOGR("movement_range_maps/cb_2021_us_state_500k/cb_2021_us_state_500k.shp")
 
 
-# source the ui and server files
-source("ui.R")
-source("server.R")
-
-# launch the app
-shinyApp(ui = ui, server = server)
+# # source the ui and server files
+# source("ui.R")
+# source("server.R")
+# 
+# # launch the app
+# shinyApp(ui = ui, server = server)
