@@ -1,7 +1,10 @@
-# Group_A_COVID-19_insights
-QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
+# Group A (COVID-19 insights)
+
+Final Project for QMSS G5063 - Data Visualization (Spring 2022)
 
 ## Project Topic: Effects of COVID-19 on the working population in the U.S.
+
+[Webpage deployed by Shiny R](https://tobykylaw.shinyapps.io/Group_A_COVID-19_insights/)
 
 [Project Proposal](./Project_Proposal_Group_A.pdf)
 
