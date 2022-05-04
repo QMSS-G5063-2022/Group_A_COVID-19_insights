@@ -5,9 +5,9 @@ account: shaunahan
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6223050
-bundleId: 5865273
+bundleId: 5868199
 url: https://shaunahan.shinyapps.io/Group_A_COVID-19_insights/
-when: 1651595473.15329
-lastSyncTime: 1651595473.15329
+when: 1651653006.64675
+lastSyncTime: 1651653006.64675
 asMultiple: FALSE
 asStatic: FALSE

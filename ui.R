@@ -12,22 +12,45 @@ ui <- fluidPage(
     tabPanel("Introduction and General Findings",
              
         h2(strong("Welcome!")),
+        h4("~~ presented by Shauna Han, Toby Law, Wenyi Li and Nicole Wang ~~"),
         hr(),
-        br(),
         
         h3(strong("Project Introduction")),
-        p("Insert introduction text here"),
+        p("The COVID-19 pandemic has reshaped the U.S. job market more than any 
+          other event since at least the Great Recession of 2007-09, and the 
+          financial panic that followed. As the COVID-19 pandemic brought the 
+          economy to a sudden halt, the number of layoffs have increased sharply 
+          compared to the pre-COVID times. Most non-essential workers had to 
+          adapt from making their home their workplace, and this obviated the 
+          commute to and from work daily for a significant portion of the US 
+          population. Using the labor statistics data, movement range maps data,
+          and tweets, we aim to explore how the COVID-19 has affected the 
+          working population of the United States. We address this question by 
+          examining the state trends in unemployment rate, differences in daily 
+          movement patterns of the population, and changes in wage and working 
+          hours in different industries. The data we collected are from the U.S.
+          Bureau of Labor Statistics, Meta's Data for Good, and Twitter."),
         
         h3(strong("General Findings")),
-        p("Insert conclusion text here")),
+        p("This project aims to visualize COVID-19's impact on the US working 
+          population from multiple perspectives. The measurements that we 
+          selected are great indicators that reflect the state of the US labor 
+          market, and we captured interesting patterns through our visualizations. 
+          We found similar fluctuation patterns in the trends of unemployment 
+          rate, weekly wage and weekly hours among various industries, which 
+          echoes the severity of the pandemic, the policy and economic situation
+          at that time; the key words extracted from Twitter also reflect trends
+          in people's attitudes toward the labor market during the pandemic; 
+          the population movement map captures the widespread impact of the 
+          pandemic on people's daily commute patterns and movement ranges.")),
     
     tabPanel("Working wages and hours", ##### Wenyi's part----------------------
         
-        h2(strong("Changes in Weekly Wage & Weekly Working Hours by Industries")),
-        hr(), 
-        br(),
+        h2(strong("Changes in Weekly Wage & Weekly Working Hours by Industry")),
+        hr(),
         
-        h3("Weekly Wage Percentage Change by Industries"),
+        h3(strong("Weekly Wage Percentage Change by Industry")),
+        br(),
         p("Weekly wages are one of the most important indicators that can reflect 
         the state of the labor market. We aim to visualize the effect of the 
         COVID-19 on weekly wage by different industries, within the time range 
@@ -37,12 +60,14 @@ ui <- fluidPage(
         in weekly wage over time, as well as compare the trends among multiple 
         industries by selecting the industries that interest you. This data was 
         collected from the U.S. Bureau of Labor Statistics."),
+        br(),
              
         plotlyOutput(outputId = "weekly_wage_plot"),
-             
+        
+        br(),     
         p("The above visualization plot shows that the fluctuation pattern of 
         weekly wage percentage change over the year varies in industries. 
-        At pre-Covid time, Weekly wages in all industries plummeted in the third
+        At pre-Covid time, weekly wages in all industries plummeted in the third
         quarter in 2017; at the beginning of the pandemic, arts, information and
         educational services industries had sudden increases, while other 
         industries were either not affected too much, or had sharp declines 
@@ -51,14 +76,18 @@ ui <- fluidPage(
         declines, respectively; some industries hit the lowest record of wage 
         percentage change at the first quarter of 2021."),
         
-        h3("Change in Weekly Working Hours by Industries"),     
+        hr(),
+        h3(strong("Change in Weekly Working Hours by Industry")),  
+        br(),
         p("Working hours are another important indicator of the labor market. 
         We aim to visualize how weekly working hours in different industries 
         were affected by the COVID-19.  This data was collected from the U.S. 
         Bureau of Labor Statistics."),
+        br(),
              
         plotlyOutput(outputId = "weekly_hours_plot"),
-             
+        
+        br(),     
         p("The above visualization plot shows that workers in most industries have
         had to reduce their working hours as a result of the pandemic, the sharp
         reduction in working hours has been accompanied by an equally sharp 
@@ -73,33 +102,82 @@ ui <- fluidPage(
              
        h2(strong("US national, industrial and state average unemployment rates")),
        hr(),
-       h3(strong("Heading here")), 
-       p("The first visualization of unemployment rate is a A line chart to capture changes in average national unemployment rates over time."),
+       
+       h3(strong("Overview")),
+       br(),
+       p("In March 2020, the US imposed travel restrictions in almost all 50 
+        states to reduce the spread of COVID-19. For the vast majority of 330 
+        million Americans, public life was paralyzed. Many shops, malls and 
+        businesses were closed; restaurants and hotels were empty. Many 
+        employees of these companies were forced to apply for unemployment 
+        benefits because they lost their jobs. We want to investigate the 
+        unemployment situation under the epidemic in the US, we used 
+        unemployment rate datasets provided by the U.S. BUREAU OF LABOR 
+        STATISTICS to show how Covid-19 affected the unemployment rate in the 
+        US."),
+
+       h3(strong("US National Unemployment Rate Over Time")), 
+       p("This visualization captures changes in average national unemployment
+       rates over time which includes semi-annual data from 2016 to 2021. 
+       Users can interact with the plot by clicking on each data point to 
+       see the exact dates and rates."),
        br(),
        plotlyOutput(outputId = "national_avg"),
        br(),
+       p("The line chart shows a clear pattern that there was a surge 
+       increasement in unemployment rate started from 2020 - it jumped from
+       3.6% to 11% from Dec.2019 to June.2020. But after the peak, following
+       policy easing and the recovery of economic of US, the unemployment
+       rate is slowly decreasing and gradually returning to pre-pandemic levels."),
        hr(),
+       br(),
        
-       h3(strong("Heading here")),
-       p("The second visualization of unemployment rate is shows trend of different industries."),
+       h3(strong("US Unemployment Rate by Industry throughout the pandemic")),
+       p("This visualization captures changes in average national unemployment
+       rates over time which includes semi-annual data from 2016 to 2021,
+       and segregated by industry."),
        br(),
        plotlyOutput(outputId = "by_industry",
                     height = "800px", width = "1200px"),
        br(),
+       p("The facet plots show different patterns of unemployment rate in US
+       industries. Even though they are in different value, but most of them 
+       have very similar pattern: a surge in 2020 and 
+       gradual decreasement in 2021. The leisure and hospitality industry had
+       the largest increasement in unemployment rate from under 10% to 
+       above 30%. The reason behind this is obvious since the industry is mainly 
+       driven by tourism. At the height of the pandemic in early 2020, the US 
+       imposed travel bans to non-citizens, whereas citizens were also more
+       reluctant to travel out of uncertainty of the severity and risk of the 
+       disease. Therefore employees in those industries were definitely the 
+       most hard hit by the pandemic when it first arose."),
        hr(), 
-       
-       h3(strong("Heading here")),
-       p("The third visualization of unemployment rate is an interactive map of US states."),
        br(),
-       leafletOutput(outputId = "rate_map")), 
+       
+       h3(strong("Map of Average Unemployment Rates by US State")),
+       br(),
+       p("Next, we want to investigate the effect of unemployment rates across 
+       geographic regions. The map shows the unemployment rates in US States. 
+       data from 2019 to 2021 is included, which is before and after the height 
+       of the epidemic. Users can choose the year at the upper right corner and 
+       see the map of that year."),
+       br(),
+       leafletOutput(outputId = "rate_map"), 
+       br(),
+       p("The map shows how unemployment rate changes in US States before and 
+        after the height of the COVID-19 epidemic, we can see that almost all 
+        of the states have increasement in 2020 even though at different levels.
+        The unemployment rate of California became higher in 2020 because 
+        California was one of the states with the most Covid-19 cases and most 
+        stringent regulations and policies.")),
     
     tabPanel("Twitter text analysis", ##### Shauna's part ----------------------
     
         h2(strong("Twitter Text Analysis about Unemployment during the COVID-19 pandemic")),
         hr(),
-        br(),
         
         h3(strong("Overview")),
+        br(),
         p("We extracted tweets using Twitter API to understand how people 
         perceive about the unemployment situation in the United States. 
         We downloaded 500 tweets for three time periods: 2019, 2020, and 
@@ -192,7 +270,6 @@ ui <- fluidPage(
         
         h2(strong("Movement range effects at the height of the COVID-19 pandemic in 2020")),
         hr(),
-        br(),
         
         # Output 1: National map of state averages ----
         h3(strong("Overview")),
