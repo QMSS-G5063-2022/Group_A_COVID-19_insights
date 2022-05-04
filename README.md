@@ -16,3 +16,5 @@ QMSS G5063 - Data Visualization (Spring 2022) - Group A (COVID-19 insights)
 ## Project Topic: Effects of COVID-19 on the working population in the U.S.
 
 [Project Proposal](./Project_Proposal_Group_A.pdf)
+
+[Process Book](./GroupA_ProcessBook.pdf)
