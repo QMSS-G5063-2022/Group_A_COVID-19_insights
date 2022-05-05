@@ -14,7 +14,6 @@ server <- function(input, output){
       ylab("% Change Over the Year") +  
       theme(axis.title.x=element_blank(), 
             panel.background = element_rect(fill='transparent') ) + 
-      ggtitle("Weekly wage (quarterly) % change over the year by industry") + 
       theme(plot.title = element_text(size=12))
     ggplotly(g1, tooltip = c("text"))
   })
@@ -46,7 +45,6 @@ server <- function(input, output){
     plot_ly(weekly_hours, x = ~time, y = ~Construction, 
             type = 'scatter', mode = 'lines') %>%
       layout(
-        title = "Average weekly hours by industry",
         xaxis = list(showgrid = FALSE, title = FALSE),
         yaxis = list(title = FALSE),
         updatemenus = list(
@@ -95,8 +93,7 @@ server <- function(input, output){
     plot2 <- ggplot(ind1, aes(Date, value, col = Industry)) +             # Create ggplot2 plot
       geom_line()+
       facet_wrap(Industry ~., nrow = 5) +
-      labs(x="Year", y="Unemployment Rate %", 
-           title="US Unemployment Rate by Industry (2019-2021)") +
+      labs(x="Year", y="Unemployment Rate %") +
       theme_bw() + 
       theme(plot.title=element_text(hjust = 0.5))
     

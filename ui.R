@@ -1,21 +1,26 @@
 library(markdown)
 library(shiny)
+library(shinythemes)
 
 source('data_preprocessing.R')
 
 ui <- fluidPage(
-  
-  titlePanel(h2(strong("The effects of COVID-19 on the US working population"))),
-  
-  navlistPanel(
+  fluidRow(
+    column(8, align="center", offset = 2,
+  navbarPage("Impacts of COVID-19 on the US Working Population",
+             theme = shinytheme("journal"),
     
-    tabPanel("Introduction and General Findings",
-             
+    tabPanel("Introduction",
+        
         h2(strong("Welcome!")),
         h4("~~ presented by Shauna Han, Toby Law, Wenyi Li and Nicole Wang ~~"),
         hr(),
         
         h3(strong("Project Introduction")),
+        br(),
+        img(src = "employment.png"),
+        br(),
+        br(),
         p("The COVID-19 pandemic has reshaped the U.S. job market more than any 
           other event since at least the Great Recession of 2007-09, and the 
           financial panic that followed. As the COVID-19 pandemic brought the 
@@ -29,22 +34,9 @@ ui <- fluidPage(
           examining the state trends in unemployment rate, differences in daily 
           movement patterns of the population, and changes in wage and working 
           hours in different industries. The data we collected are from the U.S.
-          Bureau of Labor Statistics, Meta's Data for Good, and Twitter."),
-        
-        h3(strong("General Findings")),
-        p("This project aims to visualize COVID-19's impact on the US working 
-          population from multiple perspectives. The measurements that we 
-          selected are great indicators that reflect the state of the US labor 
-          market, and we captured interesting patterns through our visualizations. 
-          We found similar fluctuation patterns in the trends of unemployment 
-          rate, weekly wage and weekly hours among various industries, which 
-          echoes the severity of the pandemic, the policy and economic situation
-          at that time; the key words extracted from Twitter also reflect trends
-          in people's attitudes toward the labor market during the pandemic; 
-          the population movement map captures the widespread impact of the 
-          pandemic on people's daily commute patterns and movement ranges.")),
+          Bureau of Labor Statistics, Meta's Data for Good, and Twitter.")),
     
-    tabPanel("Working wages and hours", ##### Wenyi's part----------------------
+    tabPanel("Working Wages and Hours", ##### Wenyi's part----------------------
         
         h2(strong("Changes in Weekly Wage & Weekly Working Hours by Industry")),
         hr(),
@@ -100,7 +92,7 @@ ui <- fluidPage(
     
     tabPanel("Unemployment", ##### Nicole's part -------------------------------
              
-       h2(strong("US national, industrial and state average unemployment rates")),
+       h2(strong("US National, Industrial and State Average Unemployment Rates")),
        hr(),
        
        h3(strong("Overview")),
@@ -171,7 +163,7 @@ ui <- fluidPage(
         California was one of the states with the most Covid-19 cases and most 
         stringent regulations and policies.")),
     
-    tabPanel("Twitter text analysis", ##### Shauna's part ----------------------
+    tabPanel("Twitter Text Analysis", ##### Shauna's part ----------------------
     
         h2(strong("Twitter Text Analysis about Unemployment during the COVID-19 pandemic")),
         hr(),
@@ -333,6 +325,29 @@ ui <- fluidPage(
         # Leaflet output:
         leafletOutput("county_level")),
     
-    widths = c(2, 8)
+    tabPanel("General Findings",
+         
+          h3(strong("General Findings")),
+          p("This project aims to visualize COVID-19's impact on the US working 
+          population from multiple perspectives. The measurements that we 
+          selected are great indicators that reflect the state of the US labor 
+          market, and we captured interesting patterns through our visualizations. 
+          We found similar fluctuation patterns in the trends of unemployment 
+          rate, weekly wage and weekly hours among various industries, which 
+          echoes the severity of the pandemic, the policy and economic situation
+          at that time; the key words extracted from Twitter also reflect trends
+          in people's attitudes toward the labor market during the pandemic; 
+          the population movement map captures the widespread impact of the 
+          pandemic on people's daily commute patterns and movement ranges."),
+            
+          br(),
+             
+          h3(strong("Contact Us")),
+          p("Shauna Han: shauna.han@columbia.edu"),
+          p("Toby Law: kl3343@columbia.edu"),
+          p("Wenyi Li: wl2770@columbia.edu"),
+          p("Nicole Wang: yw3760@columbia.edu")),
+    
   )
 )
+))
