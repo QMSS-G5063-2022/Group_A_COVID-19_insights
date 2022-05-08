@@ -158,7 +158,9 @@ server <- function(input, output){
                 opacity = 0.7, 
                 title = "Unemployment rate (2019-2021):</br> State average %", 
                 position = "bottomright") %>%
-      addLayersControl(overlayGroups = c("2019", "2020", "2021"))
+      addLayersControl(
+        baseGroups = c("2019","2020", "2021"),
+                       options = layersControlOptions(collapsed = FALSE))
     
   })
   
