@@ -279,7 +279,7 @@ ui <- fluidPage(
         p("The COVID-19 pandemic has brought about many changes in people's daily 
         life, and some of the most widespread effects include implementation of 
         stay-at-home orders, social distancing measures and work from home 
-        policies. Most non-essential workers had to adapt from making their home 
+        policies. Most non-essential workers had to adapt to making their home 
         their workplace, and this obviated the commute to and from work daily for
         a significant portion of the US population."),
         p("Meta's movement range records measures the proportion of facebook users
