@@ -10,6 +10,8 @@ Final Project for QMSS G5063 - Data Visualization (Spring 2022)
 
 [Process Book](./GroupA_ProcessBook.pdf)
 
+[Project Group Presentation Video]()
+
 ## Project Introduction
 
 The COVID-19 pandemic has reshaped the U.S. job market more than any other 
