@@ -151,8 +151,7 @@ ui <- fluidPage(
        p("Next, we want to investigate the effect of unemployment rates across 
        geographic regions. The map shows the unemployment rates in US States. 
        data from 2019 to 2021 is included, which is before and after the height 
-       of the epidemic. We include three layer of the map to show data of each
-      year. In order to see the Users can choose the year at the upper right corner and 
+       of the epidemic. Users can choose the year at the upper right corner and 
        see the map of that year."),
        br(),
        leafletOutput(outputId = "rate_map"), 

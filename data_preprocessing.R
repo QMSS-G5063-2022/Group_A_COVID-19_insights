@@ -64,10 +64,10 @@ content3 <- paste("unemployment Rate:",statesgeom$Rate_2019,"<br/>",
                   "State:",statesgeom$State,"<br/>")
 
 content4 <- paste("unemployment Rate:",statesgeom$Rate_2020,"<br/>",
-                  "State",statesgeom$State,"<br/>")
+                  "State:",statesgeom$State,"<br/>")
 
 content5 <- paste("unemployment Rate:",statesgeom$Rate_2021,"<br/>",
-                  "State",statesgeom$State,"<br/>")
+                  "State:",statesgeom$State,"<br/>")
 
 
 ##### Shauna's work: # Twitter Text Mining and Sentiment Analysis---------------
