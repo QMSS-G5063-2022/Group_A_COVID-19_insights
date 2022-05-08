@@ -67,15 +67,16 @@ server <- function(input, output){
     total1$Date <- paste(total1$Year,total1$month)
     total1$Date <- ym(total1$Date)
     
-    plot1 <- ggplot(total1, aes(Date, value)) +
-      geom_point() +
-      geom_line( color="#69b3a2") +
-      theme_classic()+
-      labs(x="Year", y="Unemployment Rate %", 
-           title="US National Unemployment Rate 2016-2022")+
-      theme(plot.title=element_text(hjust = 0.5))
+    total1 <- total1 %>%
+      arrange(Date)
     
-    ggplotly(plot1)
+
+    plot1 <- plot_ly(total1, x = ~Date, y = ~value, type = 'scatter', mode = 'lines+markers', text = ~value) %>%
+      layout(
+        xaxis = list(showgrid = FALSE, title = "Year"),
+        yaxis = list(title = "Unemployment Rate %")
+        
+      )
     
   })
   
