@@ -372,22 +372,18 @@ server <- function(input, output){
   
   output$state_avg <- renderLeaflet({
     
-    daily_state_avg <- usa_2020 %>%
-      group_by(State, ds) %>%
-      summarize(avg_stay_put = mean(all_day_ratio_single_tile_users)) %>%
-      filter(ds == input$Dates) # where the date toggle input will be
+    weekly_state_avg <- usa_weekly_avg_state %>%
+      filter(week == input$Week) # where the date toggle input will be
     
-    state_shp <- readOGR("movement_range_maps/cb_2021_us_state_500k/cb_2021_us_state_500k.shp")
+    state_temp <- state_shp
     
     # Joining the proportions to the state spatial object df
-    daily_state_avg_df <- left_join(state_shp@data, daily_state_avg,
-                                    by = c("STUSPS" = "State")) %>%
+    weekly_state_avg_df <- left_join(state_temp@data, weekly_state_avg,
+                                     by = c("STUSPS" = "State")) %>%
       replace(is.na(.), 0)
     
-    state_shp@data <- daily_state_avg_df
+    state_temp@data <- weekly_state_avg_df
     
-    choro_pal <- colorBin("YlOrRd", domain = daily_state_avg_df$avg_stay_put,
-                          bins = c(0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.7, 1))
     
     leaflet() %>%
       addProviderTiles("CartoDB", 
@@ -395,50 +391,42 @@ server <- function(input, output){
       setView(lng = -98.35, lat = 39.5, zoom = 4) %>%
       setMaxBounds(lng1 = -66.9513812, lat1 = 49.3457868,
                    lng2 = -124.7844079, lat2 = 24.7433195) %>%
-      addPolygons(data = nation_shp,
-                  color = "#6e7f80", 
-                  weight = 2) %>%
-      addPolygons(data = state_shp,
+      addPolygons(data = state_temp,
                   weight = 1,
                   color = "#6e7f80",
-                  fillColor = ~choro_pal(daily_state_avg$avg_stay_put),
+                  fillColor = ~choro_pal(weekly_state_avg_df$avg_stay_put),
                   fillOpacity = 0.5,
-                  label = state_shp$NAME,
+                  label = state_temp$NAME,
                   popup = paste("Proportion of users staying put:",
-                                state_shp$avg_stay_put,
+                                state_temp$avg_stay_put,
                                 "<br/>",
                                 "State:",
-                                state_shp$NAME,
+                                state_temp$NAME,
                                 "<br/>"),
-                  group = "State",
                   highlightOptions = highlightOptions(color = "black", 
                                                       weight = 3)) %>%
       addLegend(pal = choro_pal, 
-                values = daily_state_avg$avg_stay_put, 
+                values = weekly_state_avg_df$avg_stay_put, 
                 opacity = 0.7, 
-                title = "Population staying put:</br> State daily average proportion", 
-                position = "bottomright") %>%
-      addLayersControl(overlayGroups = c("State", "County"))
+                title = "Proportion of </br> users staying put:</br> State weekly average", 
+                position = "bottomright")
+    
   })
   
   output$county_level <- renderLeaflet({
     
-    county_day <- usa_2020 %>%
-      filter(ds == input$Dates)
+    county_week <- usa_weekly_avg_county %>%
+      filter(week == input$Week)
     
-    county_shp <- readOGR("movement_range_maps/cb_2021_us_county_500k/cb_2021_us_county_500k.shp")
+    county_temp <- county_shp
     
-    # Joining the proportions to the state spatial object df
-    daily_county_df <- left_join(county_shp@data, county_day,
-                                 by = c("STUSPS" = "State",
-                                        "NAME" = "County")) %>%
+    # Joining the proportions to the county spatial object df
+    weekly_county_df <- left_join(county_temp@data, county_week,
+                                  by = c("NAME" = "County",
+                                         "STUSPS" = "State")) %>%
       replace(is.na(.), 0)
     
-    county_shp@data <- daily_county_df
-    
-    choro_pal <- colorBin("YlOrRd", domain = daily_county_df$all_day_ratio_single_tile_users,
-                          bins = c(0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.7, 1))
-    
+    county_temp@data <- weekly_county_df
     
     
     leaflet() %>%
@@ -447,31 +435,27 @@ server <- function(input, output){
       setView(lng = -98.35, lat = 39.5, zoom = 4) %>%
       setMaxBounds(lng1 = -66.9513812, lat1 = 49.3457868,
                    lng2 = -124.7844079, lat2 = 24.7433195) %>%
-      addPolygons(data = nation_shp,
-                  color = "#6e7f80", 
-                  weight = 2) %>%
-      addPolygons(data = county_shp,
+      addPolygons(data = county_temp,
                   weight = 1,
                   color = "#6e7f80",
-                  fillColor = ~choro_pal(daily_county_df$all_day_ratio_single_tile_users),
+                  fillColor = ~choro_pal(weekly_county_df$avg_stay_put),
                   fillOpacity = 0.5,
-                  label = county_shp$NAME,
+                  label = county_temp$NAME,
                   popup = paste("Proportion of users staying put:",
-                                county_shp@data$all_day_ratio_single_tile_users,
+                                county_temp$avg_stay_put,
                                 "<br/>",
                                 "State:",
-                                county_shp@data$STATE_NAME,
+                                county_temp$STATE_NAME,
                                 "<br/>",
                                 "County:",
-                                county_shp$NAME),
-                  group = "County",
+                                county_temp$NAME),
                   highlightOptions = highlightOptions(color = "black", 
                                                       weight = 3)) %>%
       addLegend(pal = choro_pal, 
-                values = daily_county_df$all_day_ratio_single_tile_users, 
+                values = weekly_county_df$avg_stay_put, 
                 opacity = 0.7, 
-                title = "Population staying put - <br/> County level proportion", 
-                position = "bottomright") %>%
-      addLayersControl(overlayGroups = c("State", "County"))
+                title = "Proportion of users </br> staying put: </br> County weekly average", 
+                position = "bottomright")
   })
+  
 }

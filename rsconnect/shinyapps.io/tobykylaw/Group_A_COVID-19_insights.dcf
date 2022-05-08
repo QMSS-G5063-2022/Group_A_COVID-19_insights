@@ -5,9 +5,9 @@ account: tobykylaw
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6223372
-bundleId: 5868249
+bundleId: 5883112
 url: https://tobykylaw.shinyapps.io/Group_A_COVID-19_insights/
-when: 1651653612.04221
-lastSyncTime: 1651653612.04221
+when: 1652001018.37425
+lastSyncTime: 1652001018.37425
 asMultiple: FALSE
 asStatic: FALSE

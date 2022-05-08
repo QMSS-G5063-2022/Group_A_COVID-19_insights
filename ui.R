@@ -256,7 +256,17 @@ ui <- fluidPage(
         words appeared, such as \"recovery\", \"relief\", \"support\", 
         \"enhanced\", \"happy\", \"easy\", and \"promise\"."),
         plotOutput(outputId = "senti_cloud_20", height = "1000px"),
-        plotOutput(outputId = "senti_cloud_21", height = "1000px")),
+        plotOutput(outputId = "senti_cloud_21", height = "1000px"),
+        
+        br(),
+        hr(),
+        h3(strong("Conclusion")),
+        p("The key words extracted from Twitter reflected trends in people's 
+          attitudes toward the labor market during the pandemic, and the outcome
+          of the sentiment analysis was parallel with the key words from Twitter.
+          Unemployment Tweets during the pandemic had more negative sentiments 
+          than that of the pre-Covid period, suggesting that many people were 
+          experiencing financial hardship and difficulties finding jobs.")),
     
     tabPanel("Movement Range Maps", ##### Toby's part --------------------------
         
@@ -274,8 +284,7 @@ ui <- fluidPage(
         a significant portion of the US population."),
         p("Meta's movement range records measures the proportion of facebook users
         (who have consented to sharing their location) that stay put within a 600
-        metre-squared area/tile each day, compared to a baseline value recorded in
-        February 2020, i.e. the pre-COVID-19 era."),
+        metre-squared area/tile each day."),
         p("US County-level measurements were recorded for every 
         single day from March 5th 2020, up to the time of writing in May 2022. 
         This presents a unique opportunity to visualize how widespread the effect 
@@ -285,18 +294,22 @@ ui <- fluidPage(
         br(),
         hr(), 
         
-        h3(strong("State daily averages of population movement")),
+        h3(strong("State weekly averages of population movement")),
         br(),
-        p("We aggregate county measures by state level to visualize changes on a 
-        national level over the course of the COVID-19 pandemic."),
+        p("We aggregate county measures by state and week to visualize changes on a 
+        national level over the first months of the COVID-19 pandemic."),
         p("COVID-19 was declared a pandemic by the World Health Organization on 
-        March 11, 2020, and a national emergency by former president Trump, on 
+        March 11, 2020 (Week 11), and a national emergency by former president Trump, on 
         March 13. This began the roll out of social distancing and stay-at-home 
         orders, and gradually more and more people nationwide who have the 
-        option to work from home are staying put. In mid-April 2020, we can 
-        observe a clear increase in the proportion of the population staying put, 
-        compared to March. A similar increase can be seen in mid August,
-        end of October, as well as the beginning of December. "),
+        option to work from home are staying put. Throughout April 2020 
+        (Week 14-18), we can observe a clear increase in the proportion of the 
+        population staying put in states nationwide, compared to the baseline in 
+        March. A similar increase can be seen at the end of December (Week 52)."),
+        p("We can also see that the state of California often has higher 
+          proportions of the population staying put amongst all states in the
+          same period, which might be because the state has the most stringent 
+          public health regulations during the pandemic."),
         br(),
         # Leaflet output:
         leafletOutput("state_avg"),
@@ -306,14 +319,14 @@ ui <- fluidPage(
         # Input: Slider for the Date ----
         p("Toggle along the timeline to see how the proportion of population 
         staying put changes with time."),
-        sliderInput(inputId = "Dates",
-                   label = "Date:",
-                   min = as.Date("2020-03-01","%Y-%m-%d"),
-                   max = as.Date("2020-12-31","%Y-%m-%d"),
-                   value=as.Date("2020-03-01"),
-                   timeFormat="%Y-%m-%d",
-                   width = "100%"),
-             
+        p("Please wait patiently for both maps to load before each toggle (~20 seconds)."),
+        sliderInput(inputId = "Week",
+                    label = "Week of 2020:",
+                    min = 9,
+                    max = 53,
+                    value = 9,
+                    width = "100%"),
+        
         # Output 2: map of county level values ----
         br(),
         hr(),
@@ -323,7 +336,20 @@ ui <- fluidPage(
         Note that counties colored as grey do not have records."),
         br(),
         # Leaflet output:
-        leafletOutput("county_level")),
+        leafletOutput("county_level"),
+        
+        hr(),
+        # Conclusion: 
+        h3(strong("Conclusion")),
+        br(),
+        p("The population movement maps capture the widespread impact of the 
+          pandemic on people's daily commute patterns and movement ranges. In the
+          midst of uncertainty during the first wave of the COVID-19 pandemic, we
+          are able to visualize impact of the stay-at-home orders 
+          and work-from-home policies. These changes and impacts are so widespread
+          that nationwide resonation can be visualized, and we can see how it peaks
+          in the month of April 2020, maintains at lower levels throughout most
+          of the time afterwards, and then peaks again at the end of year.")),
     
     tabPanel("General Findings",
          
@@ -331,14 +357,21 @@ ui <- fluidPage(
           p("This project aims to visualize COVID-19's impact on the US working 
           population from multiple perspectives. The measurements that we 
           selected are great indicators that reflect the state of the US labor 
-          market, and we captured interesting patterns through our visualizations. 
-          We found similar fluctuation patterns in the trends of unemployment 
+          market, and we captured interesting patterns through our visualizations."),
+          p("We found similar fluctuation patterns in the trends of unemployment 
           rate, weekly wage and weekly hours among various industries, which 
           echoes the severity of the pandemic, the policy and economic situation
-          at that time; the key words extracted from Twitter also reflect trends
-          in people's attitudes toward the labor market during the pandemic; 
-          the population movement map captures the widespread impact of the 
-          pandemic on people's daily commute patterns and movement ranges."),
+          at that time."),
+          p("The key words extracted from Twitter also reflect trends
+          in people's attitudes toward the labor market during the pandemic: Our
+          four distinctive analysis demonstrates a similar pattern that labor 
+          force participation declined dramatically in 2019, but it has been 
+          slowly recovering to pre-pandemic level since the second half of 2021."), 
+          p("The population movement maps capture the widespread impact of the 
+          pandemic on people's daily commute patterns and movement ranges. In the
+          midst of uncertainty during the first wave of the COVID-19 pandemic, we
+          are able to visualize impact of stay-at-home orders 
+          and work-from-home policies, which are resonated nationwide."),
             
           br(),
              

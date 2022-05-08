@@ -184,22 +184,20 @@ cleaned_twt3<-df3%>%
 
 ##### Toby's work: Movement range maps------------------------------------------
 
-## Importing usa dataframe
-usa <- read.csv("movement_range_maps/movement_range_data_usa_2020.txt", sep = ",")
-
-# selecting years of interest
-usa_2020 <- usa %>%
-  filter(year == 2020)
-
-## Importing the shape files
-nation_shp <- readOGR("movement_range_maps/cb_2021_us_nation_5m/cb_2021_us_nation_5m.shp")
-county_shp <- readOGR("movement_range_maps/cb_2021_us_county_500k/cb_2021_us_county_500k.shp")
-state_shp <- readOGR("movement_range_maps/cb_2021_us_state_500k/cb_2021_us_state_500k.shp")
+## Importing usa dataframe weekly average for state and county
+usa_weekly_avg_county <- read.csv("./movement_range_maps/movement_range_data_usa_2020_county.txt",
+                                  sep = ",")
+usa_weekly_avg_state <- read.csv("./movement_range_maps/movement_range_data_usa_2020_state.txt",
+                                 sep = ",")
 
 
-# # source the ui and server files
-# source("ui.R")
-# source("server.R")
-# 
-# # launch the app
-# shinyApp(ui = ui, server = server)
+## Importing shape for state and county
+
+county_shp <- readOGR("./movement_range_maps/cb_2021_us_county_500k/cb_2021_us_county_500k.shp",
+                      verbose = FALSE)
+state_shp <- readOGR("./movement_range_maps/cb_2021_us_state_500k/cb_2021_us_state_500k.shp",
+                     verbose = FALSE)
+
+## defining the color palette
+choro_pal <- colorBin("YlOrRd", domain = usa_weekly_avg_county$avg_stay_put,
+                      bins = c(0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.7, 1))
