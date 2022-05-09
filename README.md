@@ -10,7 +10,7 @@ Final Project for QMSS G5063 - Data Visualization (Spring 2022)
 
 [Process Book](./GroupA_ProcessBook.pdf)
 
-[Project Group Presentation Video]()
+[Project Group Presentation Video](https://drive.google.com/file/d/1qYHouPkVQekBr220wVu3xFk_wpJQHg1U/view?usp=sharing)
 
 ## Project Introduction
 
